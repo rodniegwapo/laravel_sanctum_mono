@@ -9,6 +9,9 @@
 <script>
 export default {
   name: 'IndexPage',
-  middleware: 'auth'
+  middleware: 'auth',
+  created() {
+    this.$router.push('/dashboard')
+  }
 }
 </script>

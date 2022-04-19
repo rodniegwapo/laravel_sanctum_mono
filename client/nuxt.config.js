@@ -24,7 +24,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    'mixins/index'
+    'mixins/index',
+    'plugins/vee-validate'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -38,7 +39,8 @@ export default {
     ripple: true,
     components: ['InputText','Button', 'Toast','Card','Fieldset','MegaMenu','Menu',
                 'DataTable','Column','ColumnGroup','Row','Checkbox','ProgressSpinner',
-                'Toast','Dialog',
+                'Toast','Dialog','Dropdown','ConfirmDialog','Avatar','SplitButton','Breadcrumb',
+                'Divider'
                 ],
   },
 
@@ -90,6 +92,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // https://github.com/primefaces/primevue/issues/844
-    transpile: ['primevue'],
+    transpile: ['primevue','vee-validate'],
   }
 }

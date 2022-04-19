@@ -21,6 +21,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
+            'role_id' => ['required'],
             'email' => [
                 'required',
                 'string',
@@ -38,6 +39,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'firstname' => $input['firstname'],
                 'lastname' => $input['lastname'],
                 'email' => $input['email'],
+                'role_id' => $input['role_id']
             ])->save();
         }
     }
@@ -52,9 +54,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     protected function updateVerifiedUser($user, array $input)
     {
         $user->forceFill([
-            'name' => $input['name'],
+            'firstname' => $input['firstname'],
+            'lastname' => $input['lastname'],
             'email' => $input['email'],
             'email_verified_at' => null,
+            'role_id' => $input['role_id']
         ])->save();
 
         $user->sendEmailVerificationNotification();

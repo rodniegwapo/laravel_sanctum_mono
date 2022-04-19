@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/', function () {
-        // Uses first & second middleware...
-    });
- 
-    Route::get('/user/profile', function () {
-        // Uses first & second middleware...
-    });
+    Route::post('/add_user', [UserController::class, 'addUser']);
+    Route::get('/get_user', [UserController::class, 'getUser']);
+    Route::post('/delete_user', [UserController::class, 'deleteUser']);
+    Route::post('/update_user', [UserController::class, 'updateUser']);
 });
 
