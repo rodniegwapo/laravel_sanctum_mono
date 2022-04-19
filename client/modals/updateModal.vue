@@ -30,7 +30,7 @@
                         </ValidationProvider>
                         <ValidationProvider name="roles" rules="required" v-slot="{errors}">
                             <label for="roles" class="block text-900 font-medium mb-2">Roles</label>
-                            <Dropdown optionValue="1" dataKey="value" v-model="form['role_id']" :class="{'border-error':errors[0]}"  :options="roles" 
+                            <Dropdown optionValue="value" dataKey="value" v-model="form['role_id']" :class="{'border-error':errors[0]}"  :options="roles" 
                                 optionLabel="label" class="w-full" placeholder="Select a Role"  >
                             </Dropdown>
                             <!-- <span class="error">{{errors[0]}}</span> -->
